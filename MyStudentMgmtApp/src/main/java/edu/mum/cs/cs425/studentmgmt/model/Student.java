@@ -25,8 +25,7 @@ public class Student {
 	private String studentNumber;
      
      
-     @OneToMany(cascade=CascadeType.ALL)
-     private List<Classroom> classroom = new ArrayList<>();
+     
      
      @NonNull
 	private String firstName;
@@ -64,7 +63,7 @@ public class Student {
 	
 	public Student(long studentId, String studentNumber, String firstName, String middleName, String lastName,
 			double cgpa, LocalDate dateOfEnrollment) {
-		super();
+		
 		this.studentId = studentId;
 		this.studentNumber = studentNumber;
 		this.firstName = firstName;
@@ -74,18 +73,8 @@ public class Student {
 		this.dateOfEnrollment = dateOfEnrollment;
 	}
 	
-	public void addClassroom(Classroom classroom) {
-		this.classroom.add(classroom);
-	}
 	
-	public List<Classroom> getClassroom() {
-		return classroom;
-	}
-
-
-	public void setClassroom(List<Classroom> classroom) {
-		this.classroom = classroom;
-	}
+	
 
 
 	public String getStudentNumber() {
