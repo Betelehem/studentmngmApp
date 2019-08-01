@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import edu.mum.cs.cs425.studentmgmt.model.Classroom;
 import edu.mum.cs.cs425.studentmgmt.model.Student;
 import edu.mum.cs.cs425.studentmgmt.model.Transcript;
+import edu.mum.cs.cs425.studentmgmt.repository.ClassroomRepository;
 import edu.mum.cs.cs425.studentmgmt.repository.StudentRepostory;
 
 @SpringBootApplication
@@ -17,6 +18,9 @@ public class MyStudentMgmtAppApplication implements CommandLineRunner {
 	@Autowired
 	StudentRepostory studentRepository;
 
+	@Autowired
+	ClassroomRepository classroomrepository;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(MyStudentMgmtAppApplication.class, args);
 
@@ -29,8 +33,9 @@ public class MyStudentMgmtAppApplication implements CommandLineRunner {
 		Transcript t1= new Transcript (1L, "BS Computer Science");
 		Classroom c1= new Classroom(1L, "McLaughlin building", "M105");
 		s1.setTranscript(t1);
-		s1.addClassroom(c1);
+		c1.addStudent(s1);
 		saveStudent(s1);
+		saveClass(c1);
 
 	}
 
@@ -38,6 +43,11 @@ public class MyStudentMgmtAppApplication implements CommandLineRunner {
 
 		System.out.println("studentRepository obj value " + studentRepository);
 		studentRepository.save(student);
+	}
+	public void saveClass(Classroom classroom) {
+
+		
+		classroomrepository.save(classroom);
 	}
 
 }

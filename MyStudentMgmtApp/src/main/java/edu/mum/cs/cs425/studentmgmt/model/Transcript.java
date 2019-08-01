@@ -18,6 +18,11 @@ public class Transcript {
 	public Long getTranscriptId() {
 		return transcriptId;
 	}
+	
+	@Override
+	public String toString() {
+		return "Transcript [transcriptId=" + transcriptId + ", degreeTitle=" + degreeTitle + "]";
+	}
 	public void setTranscriptId(Long transcriptId) {
 		this.transcriptId = transcriptId;
 	}
